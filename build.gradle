@@ -1,6 +1,13 @@
 plugins {
     id 'java'
+    id 'au.com.dius.pact' version '3.5.21'
+    id "com.wiredforcode.spawn" version '0.8.2'
+    id 'org.springframework.boot' version '2.0.4.RELEASE'
 }
+
+apply plugin: 'io.spring.dependency-management'
+
+import com.wiredforcode.gradle.spawn.*
 
 group 'com.zuhlke'
 version '1.0-SNAPSHOT'
@@ -12,5 +19,28 @@ repositories {
 }
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'au.com.dius:pact-jvm-consumer-junit_2.11:3.5.22'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task startProvider(type: SpawnProcessTask, dependsOn: 'assemble') {
+    command "java -jar ${jar.archivePath}"
+    ready "Started EasyNotesAppApplicationKt"
+}
+
+task stopProvider(type: KillProcessTask) {}
+
+pact {
+    serviceProviders {
+        'ihub_mart' {
+            port = 8989
+            startProviderTask = startProvider
+            terminateProviderTask = stopProvider
+            stateChangeUrl = url('http://localhost:8989/setup')
+            stateChangeUsesBody = false // defaults to true
+            hasPactsFromPactBroker('http://localhost')
+        }
+    }
 }
