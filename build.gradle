@@ -27,7 +27,7 @@ dependencies {
 
 task startProvider(type: SpawnProcessTask, dependsOn: 'assemble') {
     command "java -jar ${jar.archivePath}"
-    ready "Started EasyNotesAppApplicationKt"
+    ready "Started Application"
 }
 
 task stopProvider(type: KillProcessTask) {}
