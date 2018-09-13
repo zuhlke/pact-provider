@@ -15,10 +15,8 @@ public class ExampleReportService implements ReportService {
 
     @Override
     public FOFReport extractReportData(Token token) {
-//        if (tokenRepository.getStatusByToken(token).getStatus().equals("DONE"))
         return new FOFReport("000000000410042", "22/05/2018", "485", "FOF Advisory Waiver", "ME", "163.19");
-//        else
-//            throw new UnsupportedOperationException("Token is not ready.");
+//        return new FOFReport("000000000410042", "22/05/2018", null, "FOF Advisory Waiver", "ME", "163.19");
     }
 
     @Override
@@ -29,6 +27,5 @@ public class ExampleReportService implements ReportService {
     @Override
     public TokenStatus getRequestTokenStatus(Token token) {
         return new TokenStatus("DONE");
-//        return tokenRepository.getStatusByToken(token);
     }
 }
