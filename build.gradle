@@ -26,7 +26,7 @@ dependencies {
 }
 
 task startProvider(type: SpawnProcessTask, dependsOn: 'assemble') {
-    command "java -jar ${jar.archivePath}"
+    command "java -Dspring.profiles.active=pact -jar ${jar.archivePath}"
     ready "Started Application"
 }
 
@@ -38,7 +38,7 @@ pact {
             port = 8989
             startProviderTask = startProvider
             terminateProviderTask = stopProvider
-//            stateChangeUrl = url('http://localhost:8989/setup')
+            stateChangeUrl = url('http://localhost:8989/setup')
             stateChangeUsesBody = false // defaults to true
             hasPactsFromPactBroker('http://localhost')
         }

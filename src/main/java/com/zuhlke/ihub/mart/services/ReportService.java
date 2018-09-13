@@ -7,5 +7,5 @@ import com.zuhlke.ihub.mart.models.TokenStatus;
 public interface ReportService {
     Object extractReportData(Token token);
     Token getRequestToken(TokenRequest tokenRequest);
-    TokenStatus getRequestTokenStatus(Token unique_token);
+    TokenStatus getRequestTokenStatus(Token token);
 }

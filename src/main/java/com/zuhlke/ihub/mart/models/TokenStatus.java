@@ -27,4 +27,7 @@ public class TokenStatus {
         return Objects.hash(status);
     }
 
+    public String getStatus() {
+        return status;
+    }
 }

@@ -27,4 +27,7 @@ public class Token {
         return Objects.hash(token);
     }
 
+    public String getToken() {
+        return token;
+    }
 }
