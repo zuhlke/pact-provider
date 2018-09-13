@@ -38,7 +38,7 @@ pact {
             port = 8989
             startProviderTask = startProvider
             terminateProviderTask = stopProvider
-            stateChangeUrl = url('http://localhost:8989/setup')
+//            stateChangeUrl = url('http://localhost:8989/setup')
             stateChangeUsesBody = false // defaults to true
             hasPactsFromPactBroker('http://localhost')
         }
