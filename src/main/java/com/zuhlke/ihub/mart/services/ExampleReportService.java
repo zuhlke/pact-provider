@@ -1,6 +1,6 @@
 package com.zuhlke.ihub.mart.services;
 
-import com.zuhlke.ihub.mart.models.FOFReport;
+import com.zuhlke.ihub.mart.models.AAFBCheckReport;
 import com.zuhlke.ihub.mart.models.Token;
 import com.zuhlke.ihub.mart.models.TokenRequest;
 import com.zuhlke.ihub.mart.models.TokenStatus;
@@ -14,9 +14,9 @@ public class ExampleReportService implements ReportService {
     private TokenRepository tokenRepository;
 
     @Override
-    public FOFReport extractReportData(Token token) {
-        return new FOFReport("000000000410042", "22/05/2018", "485", "FOF Advisory Waiver", "ME", "163.19");
-//        return new FOFReport("000000000410042", "22/05/2018", null, "FOF Advisory Waiver", "ME", "163.19");
+    public AAFBCheckReport extractReportData(Token token) {
+        return new AAFBCheckReport("000000000410042", "22/05/2018", "485", "FOF Advisory Waiver", "ME", "163.19");
+//        return new AAFBCheckReport("000000000410042", "22/05/2018", null, "FOF Advisory Waiver", "ME", "163.19");
     }
 
     @Override
