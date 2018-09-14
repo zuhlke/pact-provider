@@ -20,7 +20,7 @@ public class TokenRepository {
     }
 
     public void deleteAll() {
-        tokenStore.clear();
+        //Delete all tokens
     }
 
     public TokenStatus getStatusByToken(Token token) {

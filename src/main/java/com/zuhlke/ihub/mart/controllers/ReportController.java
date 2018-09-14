@@ -1,6 +1,6 @@
 package com.zuhlke.ihub.mart.controllers;
 
-import com.zuhlke.ihub.mart.models.AAFBCheckReport;
+import com.zuhlke.ihub.mart.models.Holdings;
 import com.zuhlke.ihub.mart.models.Token;
 import com.zuhlke.ihub.mart.models.TokenRequest;
 import com.zuhlke.ihub.mart.models.TokenStatus;
@@ -25,7 +25,7 @@ public class ReportController {
     }
 
     @PostMapping("/fnv-api/V1/holdings-data")
-    public AAFBCheckReport getHoldingsData(Token token) {
-        return (AAFBCheckReport) reportService.extractReportData(token);
+    public Holdings getHoldingsData(Token token) {
+        return (Holdings) reportService.extractReportData(token);
     }
 }

@@ -1,9 +1,10 @@
 package com.zuhlke.ihub.mart.services;
 
-import com.zuhlke.ihub.mart.models.AAFBCheckReport;
+import com.zuhlke.ihub.mart.models.Holdings;
 import com.zuhlke.ihub.mart.models.Token;
 import com.zuhlke.ihub.mart.models.TokenRequest;
 import com.zuhlke.ihub.mart.models.TokenStatus;
+import com.zuhlke.ihub.mart.repositories.HoldingsRepository;
 import com.zuhlke.ihub.mart.repositories.TokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,12 @@ import org.springframework.stereotype.Service;
 public class ExampleReportService implements ReportService {
     @Autowired
     private TokenRepository tokenRepository;
+    @Autowired
+    private HoldingsRepository holdingsRepository;
 
     @Override
-    public AAFBCheckReport extractReportData(Token token) {
-        return new AAFBCheckReport("000000000410042", "22/05/2018", "485", "FOF Advisory Waiver", "ME", "163.19");
-//        return new AAFBCheckReport("000000000410042", "22/05/2018", null, "FOF Advisory Waiver", "ME", "163.19");
+    public Holdings extractReportData(Token token) {
+        return holdingsRepository.getHoldingsData(token);
     }
 
     @Override
