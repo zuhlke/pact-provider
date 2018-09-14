@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class HoldingsStore {
 
     public Holdings getHoldingsData(Token token) {
+        // Verify token before returning data
         return new Holdings("000000000410042", "22/05/2018", "485", "FOF Advisory Waiver", "ME", "163.19");
 //        return new Holdings("000000000410042", "22/05/2018", null, "FOF Advisory Waiver", "ME", "163.19");
     }
