@@ -4,7 +4,7 @@ import com.zuhlke.ihub.mart.models.Token;
 import com.zuhlke.ihub.mart.models.TokenRequest;
 import com.zuhlke.ihub.mart.models.TokenStatus;
 
-public interface ReportService {
+public interface HoldingsService {
     Object extractReportData(Token token);
     Token getRequestToken(TokenRequest tokenRequest);
     TokenStatus getRequestTokenStatus(Token token);

@@ -4,7 +4,7 @@ import com.zuhlke.ihub.mart.models.Holdings;
 import com.zuhlke.ihub.mart.models.Token;
 import com.zuhlke.ihub.mart.models.TokenRequest;
 import com.zuhlke.ihub.mart.models.TokenStatus;
-import com.zuhlke.ihub.mart.services.ReportService;
+import com.zuhlke.ihub.mart.services.HoldingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ReportController {
     @Autowired
-    private ReportService reportService;
+    private HoldingsService holdingsService;
 
     @PostMapping("/fnv-api/V1/holdings")
     public Token getRequestToken(TokenRequest tokenRequest) {
-        return reportService.getRequestToken(tokenRequest);
+        return holdingsService.getRequestToken(tokenRequest);
     }
 
     @PostMapping("/fnv-api/V1/status")
     public TokenStatus getTokenStatus(Token token) {
-        return reportService.getRequestTokenStatus(token);
+        return holdingsService.getRequestTokenStatus(token);
     }
 
     @PostMapping("/fnv-api/V1/holdings-data")
     public Holdings getHoldingsData(Token token) {
-        return (Holdings) reportService.extractReportData(token);
+        return (Holdings) holdingsService.extractReportData(token);
     }
 }
